@@ -14,12 +14,11 @@ def clean_extracted(list_to_clean):
     return output_list
 
 def extract_json(list_extractions, list_to_extract):
-    output_data =[]
+    word_dict = {}
     for word in list_extractions:
         index_word = index_containing_substring(list_to_extract, word)
-        word_dict = {word:list_to_extract[index_word+1]}
-        output_data.append(word_dict)
-    return output_data
+        word_dict[word] = list_to_extract[index_word+1]
+    return word_dict
 
 def clean_text(input_string):
     split_output = input_string.replace("\n","PLACEHOLDER").replace(":","PLACEHOLDER").split("PLACEHOLDER")
